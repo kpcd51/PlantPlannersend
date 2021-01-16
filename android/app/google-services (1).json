@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "233690502452",
+    "project_id": "plant-dc91f",
+    "storage_bucket": "plant-dc91f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233690502452:android:b55848e05627ecc4388161",
+        "android_client_info": {
+          "package_name": "com.example.helloworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233690502452-ij0netfqqqif1e4efs3hrnrlev1huca5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP4v3TLuRNJMaqGxd6Ske3tyx5o_3GJW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233690502452-ij0netfqqqif1e4efs3hrnrlev1huca5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
