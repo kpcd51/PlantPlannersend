@@ -96,6 +96,16 @@ flutter:
      - image/water2.png
 
 
+     - image/backgarden.jpg
+     - image/add.png
+     - image/add1.png
+     - image/schedule.png
+
+     - image/addback.jpg
+     
+
+
+
      - video/water1.mp4
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

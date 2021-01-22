@@ -1,14 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/plant1/garden.dart';
 
-import 'package:helloworld/plant1/login1.dart';
+import 'package:helloworld/plant1/login2.dart';
 import 'package:helloworld/plant1/search.dart';
 import 'package:helloworld/plant1/tip.dart';
+
 class Menu extends StatefulWidget {
+  final User user;
+
+  const Menu({Key key, this.user}) : super(key: key);
   @override
   _MenuState createState() => _MenuState();
 }
 
 class _MenuState extends State<Menu> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+
   List<String> imgFood = [
     "image/garden.png",
     "image/search.png",
@@ -33,19 +42,19 @@ class _MenuState extends State<Menu> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(key: _scaffoldKey,
       
       appBar: AppBar(
         backgroundColor: Color(0xff998476),
         leading:IconButton(
-        onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Login1()));}
+        onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Login2()));}
         ,
       
       icon: Icon(
-            Icons.person,
-            color: Color(0xff623B28), 
+            Icons.logout,
+            color: Colors.white 
           ),
-          ),
+          ),title: Text('          Welcome ${widget.user.displayName}'),
       ),
       
       backgroundColor: Color(0xffD2DBC8),
@@ -68,7 +77,7 @@ class _MenuState extends State<Menu> {
            
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("           Let's start",
+              child: Text("          Let's start",
                 style: TextStyle(
                   fontSize: 40,
                   color: Color(0xff623B28),
@@ -94,7 +103,7 @@ SizedBox(height: 20),
               color: Color(0xffFFFFFF),
               shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20.0)),
-                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Menu()));}
+                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Garden()));}
         ,
                 child: choice(imgFood[0], "Go to garden"),
               ),

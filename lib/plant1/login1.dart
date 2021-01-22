@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/plant1/menu.dart';
-import 'package:helloworld/plant1/mystyle.dart';
-import 'package:helloworld/plant1/login1.dart';
-import 'package:helloworld/plant1/register.dart';
+
 import 'package:helloworld/plant1/register2.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:helloworld/plant1/register3.dart';
+
+
 bool _value=false;
 class Login1 extends StatefulWidget {
   @override
@@ -12,6 +14,18 @@ class Login1 extends StatefulWidget {
 
 class _Login1State extends State<Login1> {
   @override
+  /*void initState(){
+    super.initState();
+    checkStatus();
+  }
+  Future<void> checkStatus()async{
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    User firebaseUser = await firebaseAuth.currentUser();
+    if (firebaseUser != null) {
+      MaterialPageRoute materialPageRoute = MaterialPageRoute(builder: (BuildContext context)=>Menu());
+      Navigator.of(context).pushAndRemoveUntil(materialPageRoute, (Route<dynamic> route) => false);
+    }
+  }*/
   Widget build(BuildContext context) {
     
     return Scaffold(
@@ -230,7 +244,7 @@ class _Login1State extends State<Login1> {
                Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: new GestureDetector(
-                    onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => Register2()));},
+                    onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => Register3()));},
                     child: new Text("Don't have account?  Register",
                 style: TextStyle(
                   fontSize: 20,

@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:helloworld/plant1/login1.dart';
+import 'package:helloworld/plant1/login2.dart';
+import 'package:helloworld/plant1/login2.dart';
 import 'package:helloworld/plant1/mystyle.dart';
 
 
@@ -17,7 +18,7 @@ class _LogoState extends State<Logo> {
     Timer(
       Duration(seconds: 2), 
       ()=>Navigator.push(
-        context, MaterialPageRoute(builder: (context)=>Login1() )
+        context, MaterialPageRoute(builder: (context)=>Login2() )
         )
       );
   }

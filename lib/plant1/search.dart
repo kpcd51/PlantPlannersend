@@ -9,12 +9,16 @@ import 'package:helloworld/plant1/snakeplant.dart';
 import 'package:helloworld/plant1/st.dart';
 import 'package:helloworld/plant1/suc.dart';
 import 'package:helloworld/plant1/tulip.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class Search extends StatefulWidget {
   @override
   _SearchState createState() => _SearchState();
 }
 
 class _SearchState extends State<Search> {
+  final GlobalKey <ScaffoldState> _scaffoldKey = GlobalKey <ScaffoldState>();
+   final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +37,7 @@ class _SearchState extends State<Search> {
                     icon: Icon(Icons.arrow_back),
                     iconSize: 50,
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Menu()));
+                      _backtomenu();
                     },
                   ))
                   
@@ -280,4 +283,12 @@ class _SearchState extends State<Search> {
           ],
         ));
   }
+  void _backtomenu() async {
+      final user = _auth.currentUser;
+     
+       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){return Menu(user: user);}));
+       
+                   
+              
+}
 }

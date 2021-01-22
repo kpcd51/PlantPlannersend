@@ -5,6 +5,7 @@ import 'package:helloworld/plant1/menu.dart';
 import 'package:helloworld/plant1/replace.dart';
 import 'package:helloworld/plant1/replace2.dart';
 import 'package:helloworld/plant1/search.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 
@@ -14,6 +15,8 @@ class Tip extends StatefulWidget {
 }
 
 class _TipState extends State<Tip> {
+  final GlobalKey <ScaffoldState> _scaffoldKey = GlobalKey <ScaffoldState>();
+   final FirebaseAuth _auth = FirebaseAuth.instance;
   List<String> imgFood = [
     "image/bag.png",
     "image/pot.png",
@@ -50,8 +53,7 @@ class _TipState extends State<Tip> {
                     icon: Icon(Icons.arrow_back),
                     iconSize: 50,
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Menu()));
+                      _backtomenu();
                     },
                   ))
                   
@@ -172,7 +174,14 @@ class _TipState extends State<Tip> {
     );
      
   }
+     void _backtomenu() async {
+      final user = _auth.currentUser;
      
+       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){return Menu(user: user);}));
+       
+                   
+              
+}
         
          
   }

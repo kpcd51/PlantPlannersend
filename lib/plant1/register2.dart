@@ -1,12 +1,14 @@
 
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:helloworld/plant1/login1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:helloworld/plant1/register3.dart';
+
 import 'package:helloworld/plant1/menu.dart';
-//bool _value = false;
+bool _value = false;
 
 class Register2 extends StatefulWidget {
   @override
@@ -16,23 +18,10 @@ class Register2 extends StatefulWidget {
 
 class _Register2State extends State<Register2> {
   @override
+  
 
 
-  /*void myAlert(String title,String message){
-    showDialog(context: context,builder: (BuildContextcontext){
-      return AlertDialog(title: ListTile(leading: Icon(Icons.add_alert,color: Colors.red,
-      ),title: Text(title,style: TextStyle(
-                                    color: Colors.red,
-                                    fontFamily: "Roboto",
-                                    fontSize: 25.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                                   ),
-      ),content: Text(message),actions: <Widget>[FlatButton(child: Text('OK'),
-      onPressed: (){Navigator.of(context).pop();},)],
-      );
-    });
-  }*/
+  
   Widget build(BuildContext context) {
     
     return Scaffold(
@@ -108,9 +97,9 @@ class _Register2State extends State<Register2> {
                    onPressed: () { 
                      
                 /*showDialog(context: context, builder: (context){
-                        /*Future.delayed(Duration(seconds: 2), () {
+                        Future.delayed(Duration(seconds: 2), () {
                             Navigator.of(context).pop(MaterialPageRoute(builder: (context)=>Login1()) );
-                          });*/
+                          });
                     
                           return AlertDialog(
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15.0))),
@@ -167,11 +156,30 @@ class _Register2State extends State<Register2> {
     String title = response.code;
     String message = response.message;
     print('title = $title,message = $message');
-     myAlert(title, message);
+    
+     //myAlert(title, message);
   });
-
+  
    
   }
+  
+
+
+  /*void myAlert(String title,String message){
+    showDialog(context: context,builder: (BuildContext context){
+      return AlertDialog(title: ListTile(leading: Icon(Icons.add_alert,color: Colors.red,
+      ),title: Text(title,style: TextStyle(
+                                    color: Colors.red,
+                                    fontFamily: "Roboto",
+                                    fontSize: 25.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                                   ),
+      ),content: Text(message),actions: <Widget>[FlatButton(child: Text('OK'),
+      onPressed: (){Navigator.of(context).pop();},)],
+      );
+    });
+  }*/
   Future<void> setupDisplayName() async {
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
