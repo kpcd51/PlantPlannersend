@@ -67,7 +67,7 @@ class _TipState extends State<Tip> {
            
             Padding(
               padding: const EdgeInsets.all(0.0),
-              child: Text("         Plant Planner",
+              child: Text("       Plant Planner",
                 style: TextStyle(
                   fontSize: 40,
                   color: Color(0xffEDEAE2),
@@ -78,7 +78,7 @@ class _TipState extends State<Tip> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("                Tips",
+              child: Text("              Tips",
                 style: TextStyle(
                   fontSize: 40,
                   color: Color(0xffEDEAE2),
@@ -142,7 +142,7 @@ class _TipState extends State<Tip> {
                     borderRadius: new BorderRadius.circular(20.0)),
                     onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Insect()));}
         ,
-                child: choice(imgFood[2], "วิธีไล่แมลงศัตรูพืช2"),
+                child: choice(imgFood[2], "วิธีไล่แมลง"),
                 ),
                 ),
           

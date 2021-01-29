@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/plant1/garden.dart';
+import 'package:helloworld/plant1/garden3.dart';
+import 'package:helloworld/plant1/garden4.dart';
 
 import 'package:helloworld/plant1/login2.dart';
 import 'package:helloworld/plant1/search.dart';
@@ -54,7 +56,7 @@ class _MenuState extends State<Menu> {
             Icons.logout,
             color: Colors.white 
           ),
-          ),title: Text('          Welcome ${widget.user.displayName}'),
+          ),title: Text('       Welcome ${widget.user.displayName}'),
       ),
       
       backgroundColor: Color(0xffD2DBC8),
@@ -77,7 +79,7 @@ class _MenuState extends State<Menu> {
            
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("          Let's start",
+              child: Text("         Let's start",
                 style: TextStyle(
                   fontSize: 40,
                   color: Color(0xff623B28),
@@ -103,7 +105,7 @@ SizedBox(height: 20),
               color: Color(0xffFFFFFF),
               shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20.0)),
-                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Garden()));}
+                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));}
         ,
                 child: choice(imgFood[0], "Go to garden"),
               ),
@@ -226,5 +228,6 @@ SizedBox(height: 20),
                 ) 
                   
     );
+    
   }
 
