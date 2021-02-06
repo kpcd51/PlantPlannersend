@@ -11,14 +11,26 @@ import 'package:helloworld/plant1/suc.dart';
 import 'package:helloworld/plant1/tulip.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-class Search extends StatefulWidget {
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:helloworld/plant1/firebase.dart';
+import 'addplant.dart';
+import 'package:helloworld/plant1/menu.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'firebase.dart';
+
+import 'package:transparent_image/transparent_image.dart';
+class Idea4 extends StatefulWidget {
   @override
-  _SearchState createState() => _SearchState();
+  _Idea4State createState() => _Idea4State();
 }
 
-class _SearchState extends State<Search> {
+class _Idea4State extends State<Idea4> {
   final GlobalKey <ScaffoldState> _scaffoldKey = GlobalKey <ScaffoldState>();
    final FirebaseAuth _auth = FirebaseAuth.instance;
+   
+  final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +45,7 @@ class _SearchState extends State<Search> {
                   Positioned(
                     top: 100,
                     child: IconButton(
-                    color: Color(0xff424C47),
+                    color: Color(0xAAFFFFFF),
                     icon: Icon(Icons.arrow_back),
                     iconSize: 50,
                     onPressed: () {
@@ -44,7 +56,7 @@ class _SearchState extends State<Search> {
                 ],
               ),
             ),
-            /*Padding(
+            Padding(
               
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -69,7 +81,7 @@ class _SearchState extends State<Search> {
                       ))
                 ],
               ),
-            ),*/
+            ),
             /*Container(
               //color: Colors.red,
               height: 200,
@@ -84,124 +96,33 @@ class _SearchState extends State<Search> {
             /*SizedBox(
               height: 10,
             )*/*/
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Monstera()));},
-              child: Image.asset(
-                "image/monstera.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-             Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Snakeplant()));},
-              child: Image.asset(
-                "image/snakeplant.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Suc()));},
-              child: Image.asset(
-                "image/suc.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => St()));},
-              child: Image.asset(
-                "image/st.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Tulip()));},
-              child: Image.asset(
-                "image/tulip.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Fern()));},
-              child: Image.asset(
-                "image/fern.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Rubber()));},
-              child: Image.asset(
-                "image/rubber.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Peace()));},
-              child: Image.asset(
-                "image/peace.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-            Container(
-              
-              height: 200,
-              child:GestureDetector(
-              onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Opuntia()));},
-              child: Image.asset(
-                "image/opuntia.png",
-               // fit: BoxFit.cover,
-                width: 400,
-                height: 400,
-              ),
-            ),
-            ),
-
+            Padding(
+                            padding: const EdgeInsets.fromLTRB(0,150,0,0),
+                            child: Container(
+                              
+                              height: 800,
+                              width: double.maxFinite,
+                              //color: Colors.redAccent,
+                              
+                              child: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('imageURLs').snapshots(),
+        builder: (context, snapshot) {
+          return !snapshot.hasData
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              :  ListView.builder(
+                  itemCount: snapshot.data.docs.length,
+                  itemBuilder: (context, index) {
+                    
+                    return Column(
+                      
+                    );
+                  });
+        },
+      ),
+                            ),
+                          )
             
             /*IconButton(
               //padding: const EdgeInsets.fromLTRB(2, 3, 0, 0),

@@ -1,8 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/plant1/Idea3.dart';
 import 'package:helloworld/plant1/garden.dart';
 import 'package:helloworld/plant1/garden3.dart';
 import 'package:helloworld/plant1/garden4.dart';
+import 'package:helloworld/plant1/garden5.dart';
+import 'package:helloworld/plant1/idea.dart';
+import 'package:helloworld/plant1/idea2.dart';
+import 'package:helloworld/plant1/idea4.dart';
 
 import 'package:helloworld/plant1/login2.dart';
 import 'package:helloworld/plant1/search.dart';
@@ -105,7 +110,7 @@ SizedBox(height: 20),
               color: Color(0xffFFFFFF),
               shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20.0)),
-                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));}
+                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));}
         ,
                 child: choice(imgFood[0], "Go to garden"),
               ),
@@ -160,7 +165,7 @@ SizedBox(height: 20),
               color: Color(0xffFFFFFF),
               shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(20.0)),
-                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Menu()));}
+                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Idea3()));}
         ,
                 child: choice(imgFood[3], "ideas garden"),
                 ),

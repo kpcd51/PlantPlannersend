@@ -1,12 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:helloworld/plant1/garden.dart';
-import 'package:helloworld/plant1/garden1.dart';
-import 'package:helloworld/plant1/garden3.dart';
+import 'package:get/get.dart';
 import 'package:helloworld/plant1/garden4.dart';
+import 'package:helloworld/plant1/garden5.dart';
 
-import 'package:helloworld/plant1/menu.dart';
+
 
 
 /*- image/fernicon.png
@@ -28,6 +27,12 @@ class Addplant extends StatefulWidget {
 class _AddplantState extends State<Addplant> {
    final GlobalKey <ScaffoldState> _scaffoldKey = GlobalKey <ScaffoldState>();
    final FirebaseAuth _auth = FirebaseAuth.instance;
+   var a = 20;
+   var b = 10;
+   var c = 25;
+   var d = 30;
+   var e = 15;
+   
   @override
   
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class _AddplantState extends State<Addplant> {
                     color: Color(0xff424C47),
                     icon: Icon(Icons.arrow_back),
                     iconSize: 50,
-                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));},
+                    onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));},
                   ),
             
             
@@ -86,10 +91,12 @@ class _AddplantState extends State<Addplant> {
               left: 30,
         child: IconButton(
                     icon: Image.asset("image/monsteraicon.png"),iconSize:70,
-                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "มอนสเตอร่า",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/monsteraicon.png?alt=media&token=f9c9f4bd-d8b4-4839-b05d-fcb242fad348",
+                              "Date":DateTime.now(),
+                              "day": a
                             });
                     },
         
@@ -103,10 +110,12 @@ class _AddplantState extends State<Addplant> {
               left: 145,
         child: IconButton(
                     icon: Image.asset("image/fernicon.png"),iconSize:70,
-                   onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                   onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "เฟิร์น",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/fernicon.png?alt=media&token=c2811314-bfd2-45c0-89c1-572d26f1370e",
+                              "Date":DateTime.now(),
+                              "day": b
                             });
                     },
         
@@ -119,10 +128,12 @@ class _AddplantState extends State<Addplant> {
               left: 250,
         child: IconButton(
                     icon: Image.asset("image/suculanticon.png"),iconSize:70,
-                   onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                   onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "ไม้อวบน้ำ",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/suculanticon.png?alt=media&token=1546a84c-2160-4893-b0b4-64d6881bbec0",
+                              "Date":DateTime.now(),
+                              "day": c
                             });
                     },
                   ),
@@ -134,10 +145,12 @@ class _AddplantState extends State<Addplant> {
               left: 25,
         child: IconButton(
                     icon: Image.asset("image/peaceicon.png"),iconSize:70,
-                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "ดอกเดหลี",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/peaceicon.png?alt=media&token=3731170e-f11c-4bf3-9ffd-747deb0d22a4",
+                              "Date":DateTime.now(),
+                              "day": d
                             });
                     },
         
@@ -150,10 +163,13 @@ class _AddplantState extends State<Addplant> {
               left: 140,
         child: IconButton(
                     icon: Image.asset("image/opuntiaicon.png"),iconSize:70,
-                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "หูมิกกี้เม้าส์",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/opuntiaicon.png?alt=media&token=8d84ee9e-ac7a-47d1-bd26-f724a6067b6f",
+                              "Date": DateTime.now(),
+                              "day": e
+                             // "Delay": int
                             });
                     },
         
@@ -166,10 +182,12 @@ class _AddplantState extends State<Addplant> {
               left: 256,
         child: IconButton(
                     icon: Image.asset("image/tulipicon.png"),iconSize:70,
-                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "ทิวลิป",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/tulipicon.png?alt=media&token=ca342759-7929-48fc-8e73-78744b543c84",
+                              "Date":DateTime.now(),
+                              "day": a
                             });
                     },
         
@@ -182,10 +200,12 @@ class _AddplantState extends State<Addplant> {
               left: 25,
         child: IconButton(
                     icon: Image.asset("image/sticon.png"),iconSize:70,
-                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "เศรษฐีเรือนนอก",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/sticon.png?alt=media&token=f899341c-f3c9-4c26-84e3-88c503645843",
+                              "Date":DateTime.now(),
+                              "day": b
                             });
                     },
         
@@ -198,10 +218,13 @@ class _AddplantState extends State<Addplant> {
               left: 140,
         child: IconButton(
                     icon: Image.asset("image/snakeplanticon.png"),iconSize:70,
-                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "ลิ้นมังกร",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/snakeplanticon.png?alt=media&token=0fd55e2e-2b32-43cf-b229-c3c9c1a17b95",
+                              "Date":DateTime.now(),
+                              "day": c
+                              
                             });
                     },
         
@@ -214,10 +237,12 @@ class _AddplantState extends State<Addplant> {
               left: 256,
         child: IconButton(
                     icon: Image.asset("image/rubberplanticon.png"),iconSize:70,
-                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden4()));
+                    onPressed: ()async{Navigator.push(context,MaterialPageRoute(builder: (context) => Garden5()));
                     await FirebaseFirestore.instance.collection('planticon').add({                              
                               "name": "ยางอินเดีย",
                               "image": "https://firebasestorage.googleapis.com/v0/b/plant-dc91f.appspot.com/o/rubberplanticon.png?alt=media&token=fcb7ee02-4648-4ed7-98f1-e48a36ad0aae",
+                              "Date":DateTime.now(),
+                              "day": d
                             });
                     },
         
